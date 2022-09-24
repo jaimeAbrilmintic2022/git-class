@@ -1,0 +1,125 @@
+CONSULTA GET quadbike
+
+SELECT * FROM CUATRIMOTO
+
+*******************************
+
+CONSULTA POST quadbike
+
+begin
+INSERT INTO cuatrimoto(id,brand,model,category_id,name)
+VALUES(:id,:brand,:model,:category_id,:name);
+:status_code:=201;
+end;
+
+*****************************
+
+CONSULTA PUT quadbike
+
+begin
+UPDATE cuatrimoto SET 
+id=:id,
+brand=:brand, 
+model=:model,
+category_id=:category_id,
+name=:name 
+where 
+id=:id;
+:status_code:=201;
+END;
+
+*******************************
+
+CONSULTA DELETE quadbike
+
+begin
+    DELETE FROM cuatrimoto 
+    WHERE id=:id;
+    :status_code:=204;
+END;
+
+************************************
+CONSULTA GET quadbike/:id
+
+SELECT * FROM CUATRIMOTO WHERE id=:id
+
+/////////////////////////////////////
+////////////////////////////////////
+
+CONSULTA GET client
+
+SELECT * FROM CLIENT
+
+*******************************
+
+CONSULTA POST client
+
+BEGIN
+    INSERT INTO CLIENT(ID,NAME,EMAIL,AGE) VALUES(:id, :name, :email, :age)
+    :status_code:=201;
+END;
+
+*****************************
+
+CONSULTA PUT client
+
+BEGIN
+    UPDATE CLIENT SET NAME=:name, EMAIL=:email, AGE=:age WHERE ID=:id;
+    :status_code:=201;
+END;
+
+*******************************
+
+CONSULTA DELETE client
+
+BEGIN
+    DELETE FROM CLIENT WHERE ID=:id;
+    :status_code:=204;
+END;
+
+************************************
+CONSULTA GET client/:id
+
+SELECT * FROM CLIENT WHERE ID=:id
+
+************************************
+///////////////////////////////////////////
+//////////////////////////////////////////
+
+CONSULTA GET message
+
+SELECT * FROM MESSAGE
+
+*******************************
+
+CONSULTA POST message
+
+BEGIN
+    INSERT INTO MESSAGE(ID,MESSAGETEXT) VALUES(:id, :messagetext);
+    :status_code:=201;
+END;
+
+*****************************
+
+CONSULTA PUT message
+
+BEGIN
+    UPDATE MESSAGE SET MESSAGETEXT=:messagetext WHERE ID=:id;
+    :status_code:=201;
+END;
+
+*******************************
+
+CONSULTA DELETE message
+
+BEGIN
+    DELETE FROM MESSAGE WHERE ID=:id;
+    :status_code:=204;
+END;
+
+************************************
+CONSULTA GET message/:id
+
+SELECT * FROM MESSAGE WHERE ID=:id
+
+************************************

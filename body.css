@@ -1,0 +1,14 @@
+body{
+    font-size: 12px;
+    font-family: sans-serif;
+   
+}
+
+.ifFooter{
+    width: 100% important;
+    height: 400px;
+
+}
+p {
+    text-align: center;
+  }
