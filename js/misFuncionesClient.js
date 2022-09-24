@@ -21,7 +21,7 @@ function pintarRespuesta(items){
         
         myTable+="<tr>"
         myTable+="<td>" + items[i].id+ "<td>";
-        myTable+="<td>" + items[i].name+ "<td>";
+        myTable+="<td><a href='"+window.location.pathname+"?id="+items[i].id+"'>" + items[i].name+ "</a><td>";
         myTable+="<td>" + items[i].email+ "<td>";
         myTable+="<td>" + items[i].age+ "<td>";
         myTable+="<td> <button onclick= 'borrarElemento("+items[i].id+")'>Borrar</button>";
@@ -116,35 +116,28 @@ function guardarInformacion(){
     });
 
  }
+function obtenerInformacionIdC(){
 
- function traerInformacion_q(){
-
-    let myData ={
-        id:$("#id_q").val(),
-    };
-        console.log(myData.id)
-    let dataToSend=JSON.stringify(myData);
-
+    const url = new URL(window.location.href);
+    const id=url.searchParams.get('id');
+    console.log(id, "hasta aca llega")
+    
+  
     $.ajax({
-        url:"https://gd4e5b039ce03e6-qzzrc7eb50ba610i.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/quadbike/quadbike",
+        url:"https://gd4e5b039ce03e6-qzzrc7eb50ba610i.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client"+id,
         type:"GET",
-        data:dataToSend,        
+        //data:dataToSend,        
         datatype:"JSON",
         contentType:"application/JSON",
         success:function(respuesta){
-            console.log(respuesta.items[0].id)
+            
             for(let i=0; i < respuesta.items.length; i++){
-                if (respuesta.items[i].id == myData.id){
-                    console.log(respuesta.items)
-                    let myTable="<table>";
-                    myTable+="<tr>"
-                    myTable+="<td>" + respuesta.items[i].brand+ "<td>";
-                    myTable+="<td>" + respuesta.items[i].model+ "<td>";
-                    myTable+="<td>" + respuesta.items[i].category_id+ "<td>";
-                    myTable+="<td>" + respuesta.items[i].name+ "<td>";
-                    myTable+="<tr>"
-                    myTable+="</table>";
-                    $("#resultado").append(myTable);
+                if (respuesta.items[i].id == id){
+                                                           
+                    $("#id").val(respuesta.items[i].id),
+                    $("#name").val(respuesta.items[i].name)
+                    $("#email").val(respuesta.items[i].email),
+                    $("#age").val(respuesta.items[i].age)
                     
                 }
             }
@@ -154,4 +147,11 @@ function guardarInformacion(){
        
 }
 
- 
+function limpiarCampos(){
+
+    $("#id").val(""),
+    $("#name").val(""),
+    $("#email").val(""),
+    $("#age").val("")
+    
+}

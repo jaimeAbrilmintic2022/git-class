@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/misFuncionesClient.js"></script>
     
             
 </head>
-<body>
+<body onload= "obtenerInformacionIdC()" >
     <h1>Registro de Información de Clientes</h1>
     <div id="resultado"></div>    
     
@@ -25,8 +25,7 @@
     <button onclick="guardarInformacion()">GUARDAR</button>
     <button onclick="traerInformacion()">MOSTRAR</button>
     <button onclick="editarInformacion()">ACTUALIZAR</button>
-    
+    <button onclick="limpiarCampos()">LIMPIAR</button>
         
-    
 </body>
 </html>

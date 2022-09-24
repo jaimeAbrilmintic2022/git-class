@@ -1,4 +1,3 @@
-
 function traerInformacion(){
 
     $.ajax({
@@ -21,7 +20,7 @@ function pintarRespuesta(items){
     for(let i=0; i < items.length; i++){
         
         myTable+="<tr>"
-        myTable+="<td>  " + items[i].id+ "<td>";
+        myTable+="<td>" + items[i].id+ "<td>";
         myTable+="<td>" + items[i].brand+ "<td>";
         myTable+="<td>" + items[i].model+ "<td>";
         myTable+="<td>" + items[i].category_id+ "<td>";
@@ -33,6 +32,9 @@ function pintarRespuesta(items){
      }
      myTable+="</table>";
      $("#resultado").append(myTable);
+
+     
+     
 }
 
 function guardarInformacion(){
@@ -139,20 +141,13 @@ function obtenerInformacionId(){
             
             for(let i=0; i < respuesta.items.length; i++){
                 if (respuesta.items[i].id == id){
-                    console.log(respuesta.items[i].id)
-                    console.log(respuesta.items[i].brand)
-                    console.log(respuesta.items[i].model)
-                    console.log(respuesta.items[i].category_id)
-                    console.log(respuesta.items[i].name)
-
-                                       
+                                                           
                     $("#id").val(respuesta.items[i].id),
                     $("#brand").val(respuesta.items[i].brand),
                     $("#model").val(respuesta.items[i].model),
                     $("#category_id").val(respuesta.items[i].category_id),
                     $("#name").val(respuesta.items[i].name)
-                    //traerInformacion();
-                                                          
+                                                                         
                    
                 }
             }
@@ -160,6 +155,17 @@ function obtenerInformacionId(){
         }
     });
        
+}
+
+function limpiarCampos(){
+
+    $("#id").val(""),
+    $("#brand").val(""),
+    $("#model").val(""),
+    $("#category_id").val(""),
+    $("#name").val("")
+              
+    
 }
 
 
