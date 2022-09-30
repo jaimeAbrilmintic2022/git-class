@@ -18,7 +18,7 @@ function getCategory(){
     // $responseContainer.innerHTML='texto agregado desde javascript';
     $.ajax({
         url:"https://g389439032223da-bxtdn7v5dsb6tede.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/api/costumes",
-        type:"GET",
+        type:"POST",
         datatype:"JSON",
         success:function(response){
             console.log(response)
