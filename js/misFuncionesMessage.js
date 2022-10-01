@@ -21,7 +21,7 @@ function pintarRespuesta(items){
         
         myTable+="<tr>"
         myTable+="<td>" + items[i].id+ "<td>";
-        myTable+="<td>" + items[i].messagetext+ "<td>";
+        myTable+="<td><a href='"+window.location.pathname+"?id="+items[i].id+"'>" + items[i].messagetext+ "</a><td>";
         myTable+="<td> <button onclick= 'borrarElemento("+items[i].id+")'>Borrar</button>";
         myTable+="<tr>"
         
@@ -106,5 +106,44 @@ function guardarInformacion(){
     });
 
  }
+
+ function obtenerInformacionId(){
+
+    const url = new URL(window.location.href);
+    const id=url.searchParams.get('id');
+    console.log(id, "hasta aca llega")
+    
+  
+    $.ajax({
+        url:"https://gd4e5b039ce03e6-qzzrc7eb50ba610i.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/message/message/"+id,
+        type:"GET",
+        //data:dataToSend,        
+        datatype:"JSON",
+        contentType:"application/JSON",
+        success:function(respuesta){
+            
+            for(let i=0; i < respuesta.items.length; i++){
+                if (respuesta.items[i].id == id){
+                                                           
+                    $("#id").val(respuesta.items[i].id),
+                    $("#messagetext").val(respuesta.items[i].messagetext)
+                    
+                    
+                }
+            }
+
+        }
+    });
+       
+}
+
+function limpiarCampos(){
+
+    $("#id").val(""),
+    $("#name").val(""),
+    $("#email").val(""),
+    $("#age").val("")
+    
+}
 
  

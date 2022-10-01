@@ -116,7 +116,7 @@ function guardarInformacion(){
     });
 
  }
-function obtenerInformacionIdC(){
+function obtenerInformacionId(){
 
     const url = new URL(window.location.href);
     const id=url.searchParams.get('id');
@@ -124,7 +124,7 @@ function obtenerInformacionIdC(){
     
   
     $.ajax({
-        url:"https://gd4e5b039ce03e6-qzzrc7eb50ba610i.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client"+id,
+        url:"https://gd4e5b039ce03e6-qzzrc7eb50ba610i.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client/"+id,
         type:"GET",
         //data:dataToSend,        
         datatype:"JSON",
