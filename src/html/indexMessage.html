@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensaje</title>
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/message.css" />
+  </head>
+  <body>
+    <div>
+      <form action="/action_page.php">
+        <div class="container">
+          <div id="formContainer">
+            
+            <h1>Registro de Mensaje</h1>
+            <p>Por favor ingrese la información del mensaje</p>
+            <hr />
+
+            <input
+              type="text"              
+              id="idMessage"   
+              readonly           
+            />
+            <label for="messageText"><b>Texto del Mensaje</b></label>
+            <input
+              type="text"
+              placeholder="ingrese el mensaje"
+              id="messageText"
+              required
+            />
+            <label for="client"><b>Id Client</b></label>
+            <input
+            type="number"
+            placeholder="Id Client"
+            id="client"
+            required
+            />
+            <hr />
+            <label for="quadbike"><b>Id Quadbike</b></label>
+            <input
+            type="number"
+            placeholder="Id Quadbike"
+            id="quadbike"
+            required
+            />
+            <hr />
+
+            <button
+              type="button"
+              class="registerbtn"
+              onclick="createMessage()"
+            >
+              Registrar
+            </button>
+            
+          </div>
+        </div>
+      </form>
+
+      <button class="registerbtn info" onclick="updateMessage()">
+        Actualizar
+      </button>      
+    </div>
+
+    <h2>Mensajes disponibles en la aplicación</h2>
+    <div id="response"></div>
+    <!--<table>
+      <thead>
+        <tr>
+          <td>Id</td>
+          <td>Nombre</td>
+          <td>Id Client</td> 
+          <td>Id Quadbike</td>           
+        </tr>
+      </thead>
+      <tbody id="response"></tbody>
+    </table>-->
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/FnMessage.js"></script>
+  </body>
+</html>

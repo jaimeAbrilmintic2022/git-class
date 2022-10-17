@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/category.css" />
+    
+            
+</head>
+<body>
+    <div>
+        <form action="/action_page.php">
+          <div class="container">
+            <div id="formContainer">
+              <h1>Registro de categorias</h1>
+              <p>Por favor ingrese la información de categorias</p>
+              <hr />
+  
+              <input type="text" id="id" readonly />
+              <label for="name"><b>Nombre</b></label>
+              <input
+                type="text"
+                placeholder="ingrese el nombre"
+                id="name"
+                required
+              />
+              <label for="description"><b>Descripcion</b></label>
+              <input type="text" placeholder="Descripcion" id="description" required />
+  
+              <hr />
+  
+              <button type="button" class="registerbtn" onclick="createCategory()">
+                Registrar
+              </button>
+            </div>
+          </div>
+        </form>
+  
+        <button type="button" class="registerbtn info" onclick="updateCategory()">
+          Actualizar
+        </button>
+      </div>
+  
+      <h2>Categorias disponibles en la aplicación</h2>
+  
+      <div id="response"></div>
+  
+      <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"
+      ></script>
+      <script src="../js/FnCategory.js"></script>
+    </body>
+</body>
+</html>
